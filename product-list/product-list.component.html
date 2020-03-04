@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div class="container-fluid" style="padding-top:20px;background: rgb(243, 243, 243)">
+  <h4 class="text-center mb-2">Products List</h4>
+    <div class="row">
+    <div class="col-sm-4">
+        <div class="card" style="padding:25px;">
+      <form [formGroup]="productList">
+            <div class="form-group">
+                    <label for="Select">Sort Product</label>
+                    <select (change)="change()" class="form-control" id="Select" formControlName="list1" [(ngModel)]="sortT">
+                      <option value='sortT' selected>Select Type</option>
+                      <option *ngFor="let c of sortType1" [ngValue]="c.type">{{ c.type }}</option>
+                    </select>
+                  </div>
+                </form>
+    </div>
+  </div>
+    <div class="col-sm-8" style="margin-bottom:25px;">
+      <div class="card" style="padding:20px;">
+        <div
+        class="search-results"
+        infiniteScroll
+        [infiniteScrollDistance]="2"
+        (scrolled)="onScroll()">
+      <table border='1' class="text-center">
+              <thead>
+                  <tr class="bg-info text-white">
+                  <th>Image</th>
+                  <th>Collection</th>
+                  <th>Price</th>
+                  <th>Product Title</th>
+                  <th>Style Name</th>
+                  <th>Style Number</th>
+                  <th>Net Quantity</th>
+                  <th>Product Code</th>
+                  <th>Available Sizes</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let list of itemsToShow;let i=index">
+                  <td><img src="{{list.ListImagePath}}{{list.Images}}" style="width:30px;"></td>
+                  <td>{{list.Collection}}</td>
+                  <td>{{list.Price}}</td>
+                  <td>{{list.ProductTitle}}</td>
+                  <td>{{list.StyleName}}</td>
+                  <td>{{list.StyleNumber}}</td>
+                  <td>{{list.NetQuantity}}</td>
+                  <td>{{list.ProductCode}}</td>
+                  <td>{{list.AvailableSizes}}</td>
+              </tr>
+          </tbody>
+      </table>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+           <ngx-spinner
+           bdOpacity = 0.9
+           bdColor = ""
+           size = "default"
+           color = "#581f87"
+           type = "ball-pulse-sync"
+           [fullScreen] = "true">
+           </ngx-spinner>
+         </div>
+       </div>
+       </div>
+    </div>
+</div>
+</div>
+<app-footer></app-footer>

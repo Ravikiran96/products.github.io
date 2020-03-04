@@ -1,0 +1,82 @@
+<div style="background-image:url('assets/01.jpg');background-size: cover;height:657px;">
+<div class="container" style="padding-top:8%;">
+    <div class="card">
+  <h4 class="text-center mb-4 card-header bg-info text-white">Feedback Form <span><i class="fa fa-times float-right" (click)="close()"></i></span> </h4>
+  <div class="card-body">
+<form class="user" [formGroup]="feedback"  (ngSubmit)="onSubmit()">
+        <div class="row">
+        <div class="col-sm-6">
+    <div class="form-group">
+            <input type="text"  
+            formControlName="name" name="name"
+             class="form-control form-control-user" 
+             id="mobile" 
+             placeholder="Name"
+             [ngClass]="{ 'is-invalid':submitted && this.feedback.controls.name.errors }" />
+             <div *ngIf="submitted && feedback.controls.name.hasError('required')" class="invalid text-danger">
+                ** Name required
+             </div>
+             <div *ngIf="submitted && feedback.controls.name.hasError('minlength')" class="invalid text-danger">
+                    ** Name takes minimum 5 Characters
+                 </div>
+                 <div *ngIf="submitted && feedback.controls.name.hasError('maxlength')" class="invalid text-danger">
+                        ** Name Exceeds 20 Characters
+                     </div>
+        </div>
+        <div class="form-group">
+                <input type="text"  
+                formControlName="email" name="email"
+                 class="form-control form-control-user" 
+                 id="email" 
+                 placeholder="Email"
+                 [ngClass]="{ 'is-invalid':submitted && this.feedback.controls.email.errors }" />
+                 <div *ngIf="submitted && feedback.controls.email.hasError('required')" class="invalid text-danger">
+                    ** Email required
+                 </div>
+                 <div *ngIf="submitted && feedback.controls.email.hasError('pattern')" class="invalid text-danger">
+                        ** Invalid Email
+                     </div>
+             
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                    <input type="text"  
+                    formControlName="mobile" name="mobile"
+                     class="form-control form-control-user" 
+                     id="mobile" 
+                     placeholder="Mobile Number"
+                     [ngClass]="{ 'is-invalid':submitted && this.feedback.controls.mobile.errors }" />
+                     <div *ngIf="submitted && feedback.controls.mobile.hasError('required')" class="invalid text-danger">
+                        ** Mobile Number required
+                     </div>
+                     <div *ngIf="submitted && feedback.controls.mobile.hasError('pattern')" class="invalid text-danger">
+                            ** Invalid Mobile Number
+                         </div>
+                         <div *ngIf="submitted && feedback.controls.mobile.hasError('minlength')" class="invalid text-danger">
+                           ** Mobile Number Mustbe 10 Characters
+                        </div>
+                         <div *ngIf="submitted && feedback.controls.mobile.hasError('maxlength')" class="invalid text-danger">
+                                ** Mobile Number Exceeds 10 Characters
+                             </div>
+                </div>
+        <div class="form-group" style="margin-bottom:15px;">
+                <textarea name="ta" id="ta1" cols="65" rows="5"
+            formControlName="feedback" name="feedback"
+            class="form-control form-control-user" id="feedback" placeholder="Write your Feedback Here..."  [ngClass]="{ 'is-invalid':submitted && this.feedback.controls.feedback.errors }"></textarea>
+            <div *ngIf="submitted && feedback.controls.feedback.hasError('required')" class="invalid text-danger">
+               ** feedback required
+            </div>   
+        </div>
+    </div>
+</div>
+<div>
+        <div class="form-group" style="margin-bottom:15px;">
+        <button class="btn btn-info" style="margin:auto;display: block;"> Submit </button>
+    </div>
+</div>
+    </form>
+</div>
+</div>
+</div>
+</div>

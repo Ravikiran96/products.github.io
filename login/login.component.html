@@ -1,0 +1,63 @@
+<div  style="background-image:url('assets/img.jpg');background-size: cover;height:657px;">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+            <div class="d-flex align-items-center min-vh-120" style="margin:40px;">
+                <div class="d-block bg-white shadow-lg rounded my-4">
+                            <div class="p4"  style="padding:40px;">
+                                <div class="mb-5">
+                                    <a href="#">
+                                         <img src="assets/imageproxy.png" class="logo-dark" alt="" />
+                                    </a>
+                                </div> 
+                                <form class="user" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+                                    <div class="form-group">
+                                        <input type="text"  
+                                        formControlName="username" name="username"
+                                         class="form-control form-control-user" 
+                                         id="username" 
+                                         placeholder="Username"
+                                         [ngClass]="{ 'is-invalid':submitted && this.loginForm.controls.username.errors }" />
+                                         <div *ngIf="submitted && loginForm.controls.username.hasError('required')" class="invalid text-danger">
+                                            ** Username required
+                                         </div>
+                                         <div *ngIf="submitted && loginForm.controls.username.hasError('minlength')" class="invalid text-danger">
+                                                ** Username takes minimum 5 Characters
+                                             </div>
+                                             <div *ngIf="submitted && loginForm.controls.username.hasError('maxlength')" class="invalid text-danger">
+                                                    ** Username Exceeds 20 Characters
+                                                 </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:15px;">
+                                        <input type="password"
+                                        formControlName="password" name="password"
+                                        class="form-control form-control-user" id="password" placeholder="Password"  [ngClass]="{ 'is-invalid':submitted && this.loginForm.controls.password.errors }" />
+                                        <div *ngIf="submitted && loginForm.controls.password.hasError('required')" class="invalid text-danger">
+                                           ** Password required
+                                        </div>
+                                        <div *ngIf="submitted && loginForm.controls.password.hasError('minlength')" class="invalid text-danger">
+                                                ** Password takes minimum 5 Characters
+                                             </div>
+                                             <div *ngIf="submitted && loginForm.controls.password.hasError('maxlength')" class="invalid text-danger">
+                                                    ** Password Exceeds 10 Characters
+                                                 </div>
+                                                 <div *ngIf="submitted && loginForm.controls.password.hasError('pattern')" class="invalid text-danger">
+                                                        ** Invalid Password
+                                                     </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:15px;">
+                                    <button class="btn btn-info" style="margin:auto;display: block;"> Log In </button>
+                                </div>
+                                </form>
+                                <div class="row mt-4">
+                                    <div class="col-12 text-center">                                                    
+                                        <p class="text-muted mb-0">Copyright © <span>{{date | date:'yyyy'}}</span> Powered by Revalsys.<br> All rights reserved.</p>
+                                    </div> 
+                                </div>   
+                            </div> 
+                </div>
+            </div>
+    </div> 
+</div>
+</div>

@@ -1,0 +1,11 @@
+.fa-sort{
+    color:red;
+}
+.container-fluid{
+    font-family: 'Poppins', sans-serif;
+    
+}
+.search-results table{
+    transition: all 2s ease-out; 
+    font-size:12px;
+}
